@@ -1,10 +1,12 @@
 let btn = document.querySelector("body");
+// let btn2 = document.getElementsByClassName("btn-piano")
+
 const songs = [
-  "28.mp3",
-  "29.mp3",
-  "30.mp3",
-  "31.mp3",
-  "32.mp3",
+    "28.mp3",
+    "29.mp3",
+    "30.mp3",
+    "31.mp3",
+    "32.mp3",
   "33.mp3",
   "34.mp3",
   "35.mp3",
@@ -42,7 +44,15 @@ const songs = [
   "67.mp3",
   "68.mp3",
 ];
-
+const btns = document.querySelectorAll('.btn-piano');
+console.log(btns)
+btns.forEach((val, ind) => {
+    val.addEventListener('click', () => {
+        const audio = new Audio(`./mp3/${ind + 28}.mp3`);
+        console.log(audio);
+        audio.play();
+    });
+});
 btn.addEventListener("keydown", (delt) => {
   let songName = null;
   let key = delt.key.toUpperCase();
